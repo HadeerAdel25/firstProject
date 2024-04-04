@@ -10,6 +10,7 @@ import { TaskService } from "src/app/services/task.service";
 })
 export class DetailsComponent implements OnInit {
 
+  
   task:Task = new Task();
   constructor(private _taskService:TaskService, private _router:Router, private _activatedRoute:ActivatedRoute) { }
 
