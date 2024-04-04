@@ -1,0 +1,47 @@
+<p>students works!</p>
+
+<h2>
+<input type="text" #inputName placeholder="name"> 
+<br>
+<input type="text" #inputMobile placeholder="mobile">
+<br>
+<input type="text" #inputEmail placeholder="email">
+<br>
+<input type="text" #inputNationalID placeholder="nationalID">
+<br>
+<input type="number"  #inputAge placeholder="age">
+</h2>
+
+<button type="button" (click)= "addStudent(inputName.value, inputMobile.value, inputEmail.value, inputNationalID.value, inputAge.value)">Add student</button>
+<br>
+
+<div  class="row">
+    <table *ngIf="students.length>0" class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">S</th>
+            <th scope="col">Name</th>
+            <th scope="col">Mobile</th>
+            <th scope="col">Email</th>
+            <th scope="col">NationalID</th>
+            <th scope="col">Age</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let student of students; let currentIndex=index">
+            <th scope="row">{{currentIndex+1}}</th>
+            <td>{{student.Name}}</td>
+            <td>{{student.Mobile}}</td>
+            <td>{{student.Email}}</td>
+            <td>{{student.NationalID}}</td>
+            <td>{{student.Age}}</td>
+            <td> <button type="button"  (click)="deleteStudent(currentIndex)" class="btn btn-danger">Delete</button> </td>
+          </tr>
+         
+        </tbody>
+      </table>
+
+   </div>
+
+<!-- <span>Full Name is :{{students.fullName}}</span>
+<h1 *ngIf="student.age>10" >Your age not included</h1> -->

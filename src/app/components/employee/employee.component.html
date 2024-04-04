@@ -1,0 +1,45 @@
+<p>employee works!</p>
+
+<h1>
+<input  [(ngModel)]="employee.lastName">
+</h1>
+<h1>
+<input  type="text" (keyup.enter)="changeFirstName(inputFirstName.value) " [value]="employee.firstName" #inputFirstName>
+</h1>
+<button (click)="changeFirstName(inputFirstName.value)">Change first name</button>
+
+<h1> Fisrt name is : {{employee.firstName}}</h1>
+<h1> Last name is : {{employee.lastName}}</h1>
+<h1> Full name is : {{employee.firstName + ' ' + employee.lastName}}</h1>
+
+<h1> <img [src]="imageUrl" > </h1>
+
+<input  type="number"  [(ngModel)]="employee.age">
+<h1 [class.color-red]="employee.age>=30" [class.color-green]="employee.age<30">Your age is {{employee.age}}</h1>
+<h1 [ngClass]="{'color-red': employee.age>=30, 'color-green italic': employee.age<30}" >Your age is {{employee.age}}</h1>
+<h1 [hidden]="employee.age<30" [class.color-red]="employee.age>=30" >Sorry your age above 30</h1>
+<h1 *ngIf="employee.age>=30" [class.color-red]="employee.age>=30" >Sorry your age above 30</h1>
+
+
+<br> <br>
+<input  type="text"  #inputFirstName>
+<input  type="text"  #inputLastName>
+
+<button (click)="addNames(inputFirstName.value, inputLastName.value)">Add</button>
+<br>
+<p>{{ length }}</p>
+
+<table>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <!-- <tr *ngFor="let emp of employee; let currentRowIndex=index;">
+        <td>{{currentRowIndex +1}}</td>
+        <td>{{emp.firstName + ' ' + emp.lastName}}</td>
+        <td><button type="button" (click)="deleteRow(currentRowIndex)"></button></td>
+    </tr> -->
+</table>
+
+<br>
+<button routerLink="/task" (click)="goToTask()">Go to tasks</button>
